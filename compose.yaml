@@ -1,0 +1,12 @@
+services:
+  espressomd:
+    build: .
+    volumes:
+      - volume:/home/espresso/volume
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    network_mode: "host"
+    environment:
+      - DISPLAY=:0
+      - PATH="$HOME/.local/bin:$HOME/espresso/build/src/python:$PATH"
+volumes:
+  volume:
